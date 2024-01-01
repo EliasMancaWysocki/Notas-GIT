@@ -1,0 +1,77 @@
+cd (change directory) (si arrastras una carpeta crea la ruta automaticamente)
+
+git init (inicia git)
+
+git config --global -e (ingresa a las configuraciones globales de GIT:
+	comandos: a para modificar
+		  escape para dejar de modificar
+		  : para ingresar un comando
+		  wq! comando para guardar cambios
+		  q! para salir)
+
+git config --global init.defaultBranch "name" (cambia el nombre por defecto de la rama principal)
+git config --global alias.(nombre alias) "(comando)" (crea un alias asignado a un comando especifico, el comando va entre comillas)
+
+gti branch (devuelve el nombre de las ramas)
+git branch -m ramaACambiar nuevoNombre (cambia el nombre de una rama)
+
+git log (muestra todos los commits y su informacion)
+git log --oneline (muestra todos los commits y su informacion resumida)
+git log --oneline --decorate --all --graph (lo mismo que lo anterior mas otras banderas)
+
+git add . (añade los archivos al stage)
+git add *.(extension) (agrega todos los archivos con la extension indicada)
+git add carpeta/*.(extension) (agrega todos los archivos con la extension indicada en la carpeta indicada)
+
+git commit -m (añade los archivos al repositorio local)
+git commit --amend (entra en el modo edicion de commits)
+git commit --amend -m (corrige el mensaje del ultimo commit)
+
+git status (muestra la informacion completa acerca de las modificaciones de los archivos. Archivos en el stage y archivos untracked)
+git status --short (muestra la informacion resumida acerca de las modificaciones de los archivos)
+
+git reset --soft (HEAD^ o hash de commit) (Devuelve al commit indicado pero no destruye los cambios)
+git reset --mixed (HEAD^ o hash de commit) (Devuelve al commit indicado pero no destruye los cambios y vuelve atras los archivos al stage)
+git reset --hard (HEAD^ o hash de commit) (Devuelve al commit indicado eliminando los cambios posteriores al commit)
+
+git reflog (histórico de commits en orden cronologico, creacion, modificacion y eliminacion de commits)
+
+git mv archivo nuevoNombre (se utiliza para cambiar el nombre del archivo)
+
+git rm archivo (se utiliza para eliminar un archivo, queda guardado en el stage)
+
+git branch (nombre rama) (crea una nueva rama)
+git branch -d (nombre rama) (elimina una rama) -f (fuerza la eliminación)
+
+git checkout (nombre rama) (cambia de rama)
+git checkout -b (nombre rama) (crea una rama y te mueve automaticamente)
+git checkout -- . (reconstruye el proyecto al ultimo commit)
+git checkout -- (nombre del archivo) (deshace los cambios del archivo indicado)
+
+git merge (nombre de rama que va a unir) (une a la rama sobre la que estás parado los cambios de la rama indicada)
+
+git tag (muestra todos los tags)
+git tag (nombre del tag) (crea un tag en el último commit)
+git tag -a (nombre tag) (cod commit) -m (mensaje) (crea un tag en un commit especifico)
+git tag -d (nombre del tag) (elimina un tag)
+git show (nombre tag) (muestra informacion acerca de un tag especifico)
+
+git stash (envia los cambios no stageados ni commiteados al stash, una especie de boveda)
+git stash list (muestra una lista de los stash)
+git stash list --stat (muestra una lista de los stash mas detallada)
+git stash pop (regresa e inserta el ultimo stash)
+git stash clear (limpia la lista de stash, se puede recuperar en git reflog)
+git stash apply index (trae el stash por indice)
+git stash show index (muestra info del stash)
+git stash save nombre (le pone una descripcion al stash)
+
+git rebase ramaARebasar (actualiza el punto de separacion de la rama actual)
+git rebase -i HEAD~(numero de commits a tomar) (entra en el modo interactivo, un modo de edicion manual de commits)
+		DENTRO DEL MODO INTERACTIVO
+		squash: se utiliza para unir dos commits
+		reword: se utiliza para renombrar commits
+
+git push
+git push --tags (sube los tags al repositorio)
+git push origin :(rama-remota) (elimina de manera local y remota una rama remota)
+git remote prune origin (actualiza las referencias locales)
